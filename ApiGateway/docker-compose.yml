@@ -1,53 +1,8 @@
 version: '3'
+
 services:
-  user-service:
-    build:
-      context: ./user-service
+  nginx:
+    build: .
     ports:
-      - "3000:3000"
-    networks:
-      - backend
-
-  flight-service:
-    build:
-      context: ./flight-service
-    ports:
-      - "5000:5000"
-    networks:
-      - backend
-
-  booking-service:
-    build:
-      context: ./booking-service
-    ports:
-      - "5000:5000"
-    networks:
-      - backend
-
-  notification-service:
-    build:
-      context: ./notification-service
-    ports:
-      - "3000:3000"
-    networks:
-      - backend
-
-  infrastructure-service:
-    build:
-      context: ./infrastructure-service
-    ports:
-      - "3000:3000"
-    networks:
-      - backend
-
-  api-gateway:
-    build:
-      context: ./infrastructure-service
-    ports:
-      - "80:80"
-    networks:
-      - backend
-
-networks:
-  backend:
-    driver: bridge
+      - "8080:80"
+    container_name: nginx-multisitio
