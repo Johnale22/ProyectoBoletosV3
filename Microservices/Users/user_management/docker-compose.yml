@@ -1,20 +1,63 @@
-version: '3.8'
+version: '3'
 
 services:
-  user-management:
-    build: ./  # Asumiendo que tienes un Dockerfile en la misma carpeta
-    environment:
-      DB_HOST: MySQLMS  # Nombre del servicio de MySQL en el otro docker-compose
-      DB_USER: user
-      DB_PASSWORD: password
-      DB_NAME: flightdb
+  create-service:
+    build: ./create-service
     ports:
-      - "3001:3001"  # Exponer el puerto 3001 para el microservicio
-    networks:
-      - mynetwork  # Conectar a la misma red que MySQL
+      - "5001:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=testdb
     depends_on:
-      - MySQLMS  # Asegura que el servicio mysql esté arriba antes de iniciar user-management
+      - db
 
-networks:
-  mynetwork:
-    external: true  # Usar la red externa definida en el otro docker-compose
+  read-service:
+    build: ./read-service
+    ports:
+      - "5002:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=testdb
+    depends_on:
+      - db
+
+  update-service:
+    build: ./update-service
+    ports:
+      - "5003:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=testdb
+    depends_on:
+      - db
+
+  delete-service:
+    build: ./delete-service
+    ports:
+      - "5004:5000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=testdb
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

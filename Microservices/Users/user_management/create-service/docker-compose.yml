@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  create-service:
+    build: ./create-service
+    ports:
+      - "5001:5000"  # Expondrá el puerto 5000 dentro del contenedor al puerto 5001 de la EC2
+    environment:
+      - DB_HOST=EC2_DB_PUBLIC_IP  # Aquí va la IP pública de la otra EC2 que tendrá la base de datos
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=testdb
