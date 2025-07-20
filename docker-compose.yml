@@ -1,47 +1,57 @@
 version: '3'
+
+networks:
+  mynetwork:
+    driver: backend
+
 services:
   user-service:
+    container_name: authe_service
+    restart: always
     build: ./user-service
     ports:
       - "3000:3000"
     networks:
       - backend
+
   flight-service:
     build: ./flight-service
     ports:
       - "5000:5000"
     networks:
       - backend
+
   booking-service:
     build: ./booking-service
     ports:
       - "6000:6000"
     networks:
       - backend
+
   notification-service:
     build: ./notification-service
     ports:
       - "7000:7000"
     networks:
       - backend
+
   report-service:
     build: ./report-service
     ports:
       - "8000:8000"
     networks:
       - backend
+
   infrastructure-service:
     build: ./infrastructure-service
     ports:
       - "8080:8080"
     networks:
       - backend
+
   api-gateway:
     build: ./infrastructure-service
     ports:
       - "80:80"
     networks:
       - backend
-networks:
-  backend:
-    driver: bridge
