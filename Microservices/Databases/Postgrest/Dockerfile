@@ -1,5 +1,4 @@
 # Dockerfile for PostgreSQL
-
 FROM postgres:13
 
 # Set environment variables for PostgreSQL

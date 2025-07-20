@@ -1,57 +1,20 @@
-version: '3'
-
-networks:
-  mynetwork:
-    driver: backend
+version: '3.8'
 
 services:
-  user-service:
-    container_name: authe_service
-    restart: always
-    build: ./user-service
+  mysql:
+    build: ./Microservices/Databases/Mysql  # Construye la imagen desde la carpeta MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: mysqldb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 1234
     ports:
-      - "3000:3000"
+      - "3306:3306"  # Exponer puerto 3306 para acceder desde fuera del contenedor
+    volumes:
+      - ./Microservices/Databases/Mysql/init.sql:/docker-entrypoint-initdb.d/init.sql  # Iniciar con datos de ejemplo
     networks:
-      - backend
+      - db_network
 
-  flight-service:
-    build: ./flight-service
-    ports:
-      - "5000:5000"
-    networks:
-      - backend
-
-  booking-service:
-    build: ./booking-service
-    ports:
-      - "6000:6000"
-    networks:
-      - backend
-
-  notification-service:
-    build: ./notification-service
-    ports:
-      - "7000:7000"
-    networks:
-      - backend
-
-  report-service:
-    build: ./report-service
-    ports:
-      - "8000:8000"
-    networks:
-      - backend
-
-  infrastructure-service:
-    build: ./infrastructure-service
-    ports:
-      - "8080:8080"
-    networks:
-      - backend
-
-  api-gateway:
-    build: ./infrastructure-service
-    ports:
-      - "80:80"
-    networks:
-      - backend
+networks:
+  db_network:
+    driver: bridge

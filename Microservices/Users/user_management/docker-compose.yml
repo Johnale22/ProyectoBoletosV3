@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  user-management:
+    build: ./  # Asumiendo que tienes un Dockerfile en la misma carpeta
+    environment:
+      DB_HOST: MySQLMS  # Nombre del servicio de MySQL en el otro docker-compose
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: flightdb
+    ports:
+      - "3001:3001"  # Exponer el puerto 3001 para el microservicio
+    networks:
+      - mynetwork  # Conectar a la misma red que MySQL
+    depends_on:
+      - MySQLMS  # Asegura que el servicio mysql esté arriba antes de iniciar user-management
+
+networks:
+  mynetwork:
+    external: true  # Usar la red externa definida en el otro docker-compose
