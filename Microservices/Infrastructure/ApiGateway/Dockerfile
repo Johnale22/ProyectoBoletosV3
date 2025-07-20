@@ -1,6 +1,3 @@
 FROM nginx:alpine
-
-COPY default.conf /etc/nginx/conf.d/default.conf
-COPY sitio1 /usr/share/nginx/html/sitio1
-COPY sitio2 /usr/share/nginx/html/sitio2
-COPY sitio3 /usr/share/nginx/html/sitio3
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
