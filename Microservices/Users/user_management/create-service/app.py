@@ -17,7 +17,7 @@ def create_user():
     email = data['email']
     
     connection = mysql.connector.connect(
-        host='54.85.19.110',  # Nombre del contenedor de la base de datos
+        host='mysql',  # Nombre del contenedor de la base de datos
         user='user',
         password='12345',
         database='mysqldb'
