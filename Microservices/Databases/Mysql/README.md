@@ -1,10 +1,10 @@
-Base de datos para los usuarios
+## ## Base de datos para los usuarios con Mysql
 
-Entrar a la base de datos
-docker exec -it MySQLMS mysql -u root -p      
+- Entrar a la base de datos
+- docker exec -it MySQLMS mysql -u root -p      
 
-SHOW DATABASES;
+- SHOW DATABASES;
 
-USE MYSQLDB;
+- USE MYSQLDB;
 
-show tables;
+- show tables;
