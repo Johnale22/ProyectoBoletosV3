@@ -1,8 +1,6 @@
-version: '3'
-
 services:
   create-service:
-    build: ./create-service
+    build: .
     ports:
       - "5001:5001"  # Expondrá el puerto 5000 dentro del contenedor al puerto 5001 de la EC2
     environment:
