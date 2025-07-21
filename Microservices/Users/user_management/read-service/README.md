@@ -1,2 +1,2 @@
-## ## Creacion del usuario
-- Aqui podemos construir el microservicio con el cual vamos a consultar nuestro usuario en la base de datos
+## ## Consult user
+- Here we can build the microservice with which we are going to query our user in the database

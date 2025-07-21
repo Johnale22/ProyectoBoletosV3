@@ -3,7 +3,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Ruta para actualizar un usuario
 @app.route('/update/<int:user_id>', methods=['PUT'])
 def update_user(user_id):
     data = request.get_json()

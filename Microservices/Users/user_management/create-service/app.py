@@ -3,13 +3,13 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Ruta para hacer un ping
+
 @app.route('/ping', methods=['GET'])
 def ping():
     return jsonify({"message": "Microservicio está funcionando correctamente!"}), 200
 
 
-# Ruta para crear un usuario
+
 @app.route('/create', methods=['POST'])
 def create_user():
     data = request.get_json()
@@ -17,7 +17,7 @@ def create_user():
     email = data['email']
     
     connection = mysql.connector.connect(
-        host='mysql',  # Nombre del contenedor de la base de datos
+        host='mysql',  
         user='user',
         password='12345',
         database='mysqldb'

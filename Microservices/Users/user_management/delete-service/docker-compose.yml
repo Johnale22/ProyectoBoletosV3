@@ -2,9 +2,9 @@ services:
   delete-service:
     build: .
     ports:
-      - "5002:5002"  # Expondrá el puerto 5000 dentro del contenedor al puerto 5001 de la EC2
+      - "5002:5002" 
     environment:
-      - DB_HOST=54.85.19.110 # Aquí va la IP pública de la otra EC2 que tendrá la base de datos
+      - DB_HOST=54.85.19.110 
       - DB_USER=user
       - DB_PASSWORD=1234
       - DB_NAME=mysqldb

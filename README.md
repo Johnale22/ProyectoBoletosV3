@@ -1,24 +1,24 @@
-## ## Proyecto venta de boletos de avion en linea
+## ## Online airline ticket sales project
 
-Este proyecto consiste en el desarrollo de un sistema de **venta de boletos de avion en linea** usando  y una aplicacion movil, usando microservicios en aws y automatizacion con github actions.
+This project involves developing an online airline ticket sales system using microservices in AWS and automation with GitHub Actions.
 
 ---
 
-## 📱 ¿Qué hace el sistema?
+## 📱 What does the system do?
 
-1. Un usuario se registra o loguea en el sistema
-2. Una vez dentro puede comprar pasajes, editarlos u eliminarlos del carrito
-3. Con la compra se le envia un mensaje diciendo los datos del asiento, ubicacion, fecha y avíon
+1. A user registers or logs into the system.
+2. Once logged in, they can purchase tickets, edit them, or delete them from their cart.
+3. Upon purchase, a message is sent with the seat details, location, date, and flight details.
 4. 
 
 ---
 
-## Link de repositorio GitHub
+## GitHub repository link
 https://github.com/Johnale22/ProyectoBoletosV3.git
 
 ---
 
-## 🧱 Arquitectura por módulos
+## 🧱 Modular architecture
 
 ```bash
 ProyectoBoletosV3/
@@ -49,7 +49,7 @@ ProyectoBoletosV3/
    └── Notifications/                                  
 ```
 
-## 🧑‍💻 Autor
+## 🧑‍💻 Author
 - Universidad Central del Ecuador
 - Facultad de Ingenieria y Ciencias Aplicadas
 - Sistemas de Informacion

@@ -2,16 +2,16 @@ version: '3.8'
 
 services:
   mysql:
-    build: ./Microservices/Databases/Mysql  # Construye la imagen desde la carpeta MySQL
+    build: ./Microservices/Databases/Mysql  
     environment:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: mysqldb
       MYSQL_USER: user
       MYSQL_PASSWORD: 1234
     ports:
-      - "3306:3306"  # Exponer puerto 3306 para acceder desde fuera del contenedor
+      - "3306:3306" 
     volumes:
-      - ./Microservices/Databases/Mysql/init.sql:/docker-entrypoint-initdb.d/init.sql  # Iniciar con datos de ejemplo
+      - ./Microservices/Databases/Mysql/init.sql:/docker-entrypoint-initdb.d/init.sql 
     networks:
       - db_network
 

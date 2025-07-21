@@ -1,2 +1,2 @@
-## ## Creacion del usuario
-- Aqui podemos construir el microservicio con el cual vamos a eliminar nuestro usuario en la base de datos
+## ## Delete user
+- Here we can build the microservice with which we are going to delete our user in the database

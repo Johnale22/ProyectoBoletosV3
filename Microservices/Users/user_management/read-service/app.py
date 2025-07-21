@@ -3,7 +3,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Ruta para leer usuarios
 @app.route('/read', methods=['GET'])
 def get_users():
     connection = mysql.connector.connect(

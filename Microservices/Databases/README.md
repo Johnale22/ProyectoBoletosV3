@@ -1,6 +1,6 @@
-## ## Proyecto venta de boletos de avion en linea
+## ## Online airline ticket sales project
 
-Este modulo trata sobre las bases de datos que vamos a usar como
+This module deals with the databases that we are going to use as
 - Cassandra
 - MinIO
 - Mongo

@@ -3,7 +3,6 @@ import mysql.connector
 
 app = Flask(__name__)
 
-# Ruta para eliminar un usuario
 @app.route('/delete/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
     connection = mysql.connector.connect(
