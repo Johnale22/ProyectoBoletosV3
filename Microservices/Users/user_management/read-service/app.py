@@ -7,10 +7,10 @@ app = Flask(__name__)
 @app.route('/read', methods=['GET'])
 def get_users():
     connection = mysql.connector.connect(
-        host='db',
-        user='root',
-        password='rootpassword',
-        database='testdb'
+        host='54.85.19.110',
+        user='user',
+        password='12345',
+        database='mysqldb'
     )
 
     cursor = connection.cursor()
